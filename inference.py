@@ -8,7 +8,7 @@ Created on Fri Jul 30 10:18:30 2021
 """
 from config import *
 
-def inference(sentence):
+def inference(sentence, return_case = 5):
     import transformers
 
     try: model = transformers.TFGPT2LMHeadModel.from_pretrained(models_path, from_pt=True)
@@ -20,7 +20,7 @@ def inference(sentence):
     generated_text_samples = model.generate(
         input_ids, 
         max_length=max_length,  
-        num_return_sequences=5,
+        num_return_sequences=return_case,
         no_repeat_ngram_size=2,
         repetition_penalty=1.5,
         top_p=0.925,
