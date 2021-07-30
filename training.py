@@ -8,7 +8,7 @@ Created on Fri Jul 30 10:18:30 2021
 """
 from config import *
 
-def train_model():
+def training():
     import glob, re, os
 
     RANDOM_SEED = 42
@@ -63,4 +63,4 @@ def train_model():
         --output_dir={models_path} \
         --overwrite_output_dir
         """, shell = True)
-train_model()
+#training()

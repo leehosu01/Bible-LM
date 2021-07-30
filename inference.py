@@ -8,7 +8,7 @@ Created on Fri Jul 30 10:18:30 2021
 """
 from config import *
 
-def inference_model(sentence):
+def inference(sentence):
     import transformers
 
     model = transformers.TFGPT2LMHeadModel.from_pretrained(models_path, from_pt=True)
@@ -37,4 +37,4 @@ def inference_model(sentence):
       #print("{}: {}".format(i,tokenizer.decode(beam_case, True, False)))
       #print("{}: {}".format(i,tokenizer.decode(beam_case, False, False)))
       print("")
-#inference_model("And ")
+#inference("And ")
