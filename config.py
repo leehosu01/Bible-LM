@@ -19,10 +19,11 @@ def simple_cmd_command(cmd):
     try:
         popen = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE, universal_newlines=True)
         for stdout_line in iter(popen.stdout.readline, ""):
-            print(stdout_line) 
+            print(stdout_line.rstrip()) 
         popen.stdout.close()
         return_code = popen.wait()
         if return_code:
             raise subprocess.CalledProcessError(return_code, cmd)
     except:
+        print(f"fail to transparent execution::\n\t command = {cmd}")
         subprocess.run(cmd, shell = True)
