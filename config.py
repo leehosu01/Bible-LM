@@ -16,10 +16,13 @@ epochs = 4
 
 import subprocess
 def simple_cmd_command(cmd):
-    popen = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE, universal_newlines=True)
-    for stdout_line in iter(popen.stdout.readline, ""):
-        print(stdout_line) 
-    popen.stdout.close()
-    return_code = popen.wait()
-    if return_code:
-        raise subprocess.CalledProcessError(return_code, cmd)
+    try:
+        popen = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE, universal_newlines=True)
+        for stdout_line in iter(popen.stdout.readline, ""):
+            print(stdout_line) 
+        popen.stdout.close()
+        return_code = popen.wait()
+        if return_code:
+            raise subprocess.CalledProcessError(return_code, cmd)
+    except:
+        subprocess.run(cmd, shell = True)
