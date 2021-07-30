@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c691d62a17d49059670ebb084a50917242aa6671715c65901dc2b46dc8f60876
-size 224
+{
+    "epoch": 4.0,
+    "eval_loss": 2.7593653202056885,
+    "eval_runtime": 5.7248,
+    "eval_samples": 800,
+    "eval_samples_per_second": 139.742,
+    "eval_steps_per_second": 17.468,
+    "perplexity": 15.78981828874877
+}

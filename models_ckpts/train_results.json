@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:38b34e62c04974d5beac5e7876c43d68a077346fcbbbe56b8093d3aaf65fd9ff
-size 192
+{
+    "epoch": 4.0,
+    "train_loss": 2.79587371464002,
+    "train_runtime": 406.6972,
+    "train_samples": 3202,
+    "train_samples_per_second": 31.493,
+    "train_steps_per_second": 15.746
+}

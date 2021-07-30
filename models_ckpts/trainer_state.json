@@ -1,3 +1,97 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9d9b18e5e452ae6af8d6846593c37f34f8dc4a4ff12cd9c0441a9d922799a1bc
-size 2045
+{
+  "best_metric": null,
+  "best_model_checkpoint": null,
+  "epoch": 4.0,
+  "global_step": 6404,
+  "is_hyper_param_search": false,
+  "is_local_process_zero": true,
+  "is_world_process_zero": true,
+  "log_history": [
+    {
+      "epoch": 0.31,
+      "learning_rate": 4.612742036227358e-05,
+      "loss": 3.2672,
+      "step": 500
+    },
+    {
+      "epoch": 0.62,
+      "learning_rate": 4.222361024359775e-05,
+      "loss": 3.0891,
+      "step": 1000
+    },
+    {
+      "epoch": 0.94,
+      "learning_rate": 3.831980012492192e-05,
+      "loss": 3.0221,
+      "step": 1500
+    },
+    {
+      "epoch": 1.25,
+      "learning_rate": 3.44159900062461e-05,
+      "loss": 2.8749,
+      "step": 2000
+    },
+    {
+      "epoch": 1.56,
+      "learning_rate": 3.051217988757027e-05,
+      "loss": 2.8174,
+      "step": 2500
+    },
+    {
+      "epoch": 1.87,
+      "learning_rate": 2.6608369768894442e-05,
+      "loss": 2.7888,
+      "step": 3000
+    },
+    {
+      "epoch": 2.19,
+      "learning_rate": 2.2704559650218615e-05,
+      "loss": 2.7142,
+      "step": 3500
+    },
+    {
+      "epoch": 2.5,
+      "learning_rate": 1.8800749531542785e-05,
+      "loss": 2.6687,
+      "step": 4000
+    },
+    {
+      "epoch": 2.81,
+      "learning_rate": 1.4896939412866958e-05,
+      "loss": 2.6664,
+      "step": 4500
+    },
+    {
+      "epoch": 3.12,
+      "learning_rate": 1.099312929419113e-05,
+      "loss": 2.6345,
+      "step": 5000
+    },
+    {
+      "epoch": 3.44,
+      "learning_rate": 7.089319175515303e-06,
+      "loss": 2.58,
+      "step": 5500
+    },
+    {
+      "epoch": 3.75,
+      "learning_rate": 3.1855090568394754e-06,
+      "loss": 2.589,
+      "step": 6000
+    },
+    {
+      "epoch": 4.0,
+      "step": 6404,
+      "total_flos": 1673314172928000.0,
+      "train_loss": 2.79587371464002,
+      "train_runtime": 406.6972,
+      "train_samples_per_second": 31.493,
+      "train_steps_per_second": 15.746
+    }
+  ],
+  "max_steps": 6404,
+  "num_train_epochs": 4,
+  "total_flos": 1673314172928000.0,
+  "trial_name": null,
+  "trial_params": null
+}
