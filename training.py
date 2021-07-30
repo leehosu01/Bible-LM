@@ -7,6 +7,7 @@ Created on Fri Jul 30 10:18:30 2021
 @author: map
 """
 from config import *
+import subprocess
 
 def training():
     import glob, re, os
