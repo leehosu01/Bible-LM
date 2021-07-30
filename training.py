@@ -48,7 +48,7 @@ def training():
     as_txt(train, train_file)
     as_txt(test, test_file)
 
-    subprocess.run(f"""
+    simple_cmd_command(f"""
         python3 transformers/examples/pytorch/language-modeling/run_clm.py \
         --model_type {model_type} \
         --model_name_or_path {model_type} \
@@ -63,5 +63,5 @@ def training():
         --fp16 \
         --output_dir={models_path} \
         --overwrite_output_dir
-        """, shell = True)
+        """)
 #training()
