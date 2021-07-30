@@ -16,7 +16,7 @@ epochs = 4
 
 import subprocess
 def simple_cmd_command(cmd):
-    popen = subprocess.Popen(cmd, stdout=subprocess.PIPE, universal_newlines=True)
+    popen = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE, universal_newlines=True)
     for stdout_line in iter(popen.stdout.readline, ""):
         print(stdout_line) 
     popen.stdout.close()
