@@ -8,7 +8,7 @@ Created on Fri Jul 30 19:08:30 2021
 """
 
 from config import *
-simple_cmd_command(f"pip install sklearn==0.24.2")
+simple_cmd_command(f"pip3 install sklearn")
 simple_cmd_command(f"git clone https://github.com/huggingface/transformers")
 simple_cmd_command(f"mkdir {models_path}/")
 simple_cmd_command(f"cd transformers && git checkout tags/v4.9.1")
