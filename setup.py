@@ -7,6 +7,7 @@ Created on Fri Jul 30 19:08:30 2021
 @author: map
 """
 
+from config import *
 import subprocess
 subprocess.run(f"git clone https://github.com/huggingface/transformers", shell = True)
 subprocess.run(f"mkdir {models_path}/", shell = True)
