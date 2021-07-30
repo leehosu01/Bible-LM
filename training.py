@@ -47,23 +47,7 @@ def train_model():
     as_txt(train, train_file)
     as_txt(test, test_file)
 
-    try:
-        !python3 transformers/examples/pytorch/language-modeling/run_clm.py \
-      --model_type {model_type} \
-      --model_name_or_path {model_type} \
-      --train_file {train_file} \
-      --do_train \
-      --validation_file {test_file} \
-      --do_eval \
-      --block_size {max_length} \
-      --per_device_train_batch_size 2 \
-      --save_steps -1 \
-      --num_train_epochs {epochs} \
-      --fp16 \
-      --output_dir={models_path} \
-      --overwrite_output_dir
-    except:
-        subprocess.run(f"""
+    subprocess.run(f"""
         python3 transformers/examples/pytorch/language-modeling/run_clm.py \
         --model_type {model_type} \
         --model_name_or_path {model_type} \
