@@ -11,7 +11,7 @@ train_file = 'train.txt'
 test_file = 'test.txt'
 models_path = 'models_ckpts'
 max_length = 256
-model_type = 'gpt2'#'gpt2-medium'#
+model_type = 'gpt2-medium'#'gpt2'#
 epochs = 4
 
 import subprocess
