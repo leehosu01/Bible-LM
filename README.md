@@ -50,11 +50,11 @@ import setup
 import inference
 
 inference.inference("Look")# split and non-split format both are supported. 
-#['Look on the right hand of his own right hands, and ye shall be saved; I will not fall upon them:',
-# 'Look for the LORD: look up unto him, that he may prosper: and I will deliver thee.',
-# 'Look as an upright heart, and will not sin: but the wickedness of his mouth shall he deliver.',
-# 'Look, they have taken our counsel before the LORD to set up an ambush for us.',
-# 'Look, I will not cause any man to die in this city; but he shall live for ever.']
+#['Look the earth, and see: the land is as a garment; the fruit thereof shall not rot.',
+# 'Look out, and see what they shall do unto us; for if there be a time of temptation, I pray you come ye to the plain.',
+# 'Look out, thou king of Israel: for I am against thee, saith the LORD.',
+# 'Look, thou son of man: for thus saith the LORD; Thy years shall be in darkness and shadow until I have destroyed thy seed out from before thee.',
+# 'Look, I speak unto you as a man that have sinned: but if ye forgive not your enemies their trespasses which they commit against them.']
 ```
 
 <!--
