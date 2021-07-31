@@ -9,7 +9,9 @@ Created on Fri Jul 30 10:18:30 2021
 from config import *
 import subprocess
 
-def training():
+def training(clear_other_models = False, split_model = False, delete_model_if_split = True):
+    if clear_other_models:
+        simple_cmd_command(f"rm -r {models_path}/*") 
     import glob, re, os
 
     RANDOM_SEED = 42
@@ -57,11 +59,15 @@ def training():
         --validation_file {test_file} \
         --do_eval \
         --block_size {max_length} \
-        --per_device_train_batch_size 2 \
+        --per_device_train_batch_size {per_device_train_batch_size} \
         --save_steps -1 \
         --num_train_epochs {epochs} \
         --fp16 \
         --output_dir={models_path} \
         --overwrite_output_dir
         """)
+    if split_model:
+        simple_cmd_command(f"split -b {file_split_size} {models_path}/pytorch_model.bin {models_path}/pytorch_model.bin.split_")
+        if delete_model_if_split:
+            simple_cmd_command(f"rm -f {models_path}/pytorch_model.bin")
 #training()

@@ -10,14 +10,16 @@ Created on Fri Jul 30 10:18:30 2021
 train_file = 'train.txt'
 test_file = 'test.txt'
 models_path = 'models_ckpts'
-max_length = 256
+max_length = 128 + 64
 model_type = 'gpt2-medium'#'gpt2'#
-epochs = 4
+per_device_train_batch_size = 1
+epochs = 2
+file_split_size = 2**26
 
 import subprocess
 def simple_cmd_command(cmd):
     try:
-        popen = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE, universal_newlines=True)
+        popen = subprocess.Popen(cmd.strip().split(), stdout=subprocess.PIPE, universal_newlines=True)
         for stdout_line in iter(popen.stdout.readline, ""):
             print(stdout_line.rstrip()) 
         popen.stdout.close()
@@ -26,4 +28,5 @@ def simple_cmd_command(cmd):
             raise subprocess.CalledProcessError(return_code, cmd)
     except:
         print(f"fail to transparent execution::\n\t command = {cmd}")
-        subprocess.run(cmd, shell = True)
+        print(subprocess.run(cmd, shell = True))
+        
