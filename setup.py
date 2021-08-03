@@ -14,10 +14,13 @@ with open('requirements.txt') as f:
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-datadir = os.path.join('BibleLM','Bible_model_ckpts')
-datafiles = [(d, [os.path.join(d,f) for f in files])    for d, folders, files in os.walk(datadir)]
-datadir = os.path.join('BibleLM','input_files')
-datafiles+= [(d, [os.path.join(d,f) for f in files])    for d, folders, files in os.walk(datadir)]
+import glob
+def recursive_dir_walker(dir):
+    files = [recursive_dir_walker(directory) for directory in glob.glob(f'{dir}/*')]
+    if len(files) == 0: files = [[dir]]
+    return sum(files, [])
+
+datafiles = recursive_dir_walker('BibleLM')
 
 setuptools.setup(
     name="Bible language model", # 이 패키지를 설치/삭제할 때 사용할 이름을 의미한다. 이 이름과 import할 때 쓰이는 이름은 다르다.
