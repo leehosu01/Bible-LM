@@ -22,7 +22,6 @@ inference.inference("Look")# split and non-split format both are supported.
 ## training model 
 ```python
 
-from BibleLM.config import *
 !git clone https://github.com/huggingface/transformers
 !cd transformers && git checkout tags/v4.9.1
 !pip3 install -r transformers/examples/pytorch/_tests_requirements.txt
