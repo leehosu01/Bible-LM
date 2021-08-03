@@ -9,7 +9,12 @@ Created on Fri Jul 30 10:18:30 2021
 
 train_file = 'train.txt'
 test_file = 'test.txt'
-models_path = 'models_ckpts'
+models_dirname = 'Bible_model_ckpts'
+
+_ROOT = os.path.abspath(os.path.dirname(__file__))
+def get_data(path): return os.path.join(_ROOT, models_dirname)
+models_path = os.path.join(_ROOT, models_dirname)
+
 max_length = 128 + 64
 model_type = 'gpt2-medium'#'gpt2'#
 per_device_train_batch_size = 1
