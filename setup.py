@@ -6,11 +6,29 @@ Created on Fri Jul 30 19:08:30 2021
 
 @author: map
 """
+from setuptools import setup, find_packages
 
-from config import *
-simple_cmd_command(f"pip3 install sklearn")
-simple_cmd_command(f"git clone https://github.com/huggingface/transformers")
-simple_cmd_command(f"mkdir {models_path}/")
-simple_cmd_command(f"cd transformers && git checkout tags/v4.9.1")
-simple_cmd_command(f"cd transformers && pip3 install . && python setup.py install")
-simple_cmd_command(f"pip3 install -r transformers/examples/pytorch/_tests_requirements.txt")
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
+    name="Bible language model", # 이 패키지를 설치/삭제할 때 사용할 이름을 의미한다. 이 이름과 import할 때 쓰이는 이름은 다르다.
+    version="2.0.0",
+    author="Hosu Lee",
+    author_email="leehosu01@naver.com",
+    description="gpt2-medium based bible language model.",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/leehosu01/BibleLM",
+    packages=setuptools.find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.7',
+    install_requires=requirements,
+)
