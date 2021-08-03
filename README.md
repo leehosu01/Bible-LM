@@ -1,53 +1,13 @@
 # BibleLM
 
 
-
-## training and make ziped model 
-```python
-!git clone https://github.com/leehosu01/BibleLM.git
-!mv BibleLM/* ./
-
-import setup
-import training
-
-training.training(clear_other_models = True, split_model = False, delete_model_if_split = True)
-
-import config
-!zip -r -1 {config.models_path}.zip {config.models_path}/
-```
-
--------------------
-
-
-## training and inference(or generate) 
-```python
-!git clone https://github.com/leehosu01/BibleLM.git
-!mv BibleLM/* ./
-
-import setup
-import training, inference
-
-training.training(clear_other_models = True, split_model = False, delete_model_if_split = True)
-#training.training(clear_other_models = True, split_model = True, delete_model_if_split = True)# both are possible
-
-inference.inference("Look")
-#['Look out, and let them fall down before us.',
-# 'Look for the sword in the plains, and the spear at noon: for he hath no mercy on his own head.',
-# 'Look upon thy way, O my God; and make thee the crown of my glory.',
-# 'Look of my ways; and see, and behold the way which I have set before you:',
-# 'Look for me at the brook, and tell me: for I am strong; go in, I will shew you.']
-```
-
 -------------------
 
 
 ## inference(or generate) 
 ```python
-!git clone https://github.com/leehosu01/BibleLM.git
-!mv BibleLM/* ./
-
-import setup
-import inference
+!pip install git+https://github.com/leehosu01/BibleLM.git
+from BibleLM import inference
 
 inference.inference("Look")# split and non-split format both are supported. 
 #['Look the earth, and see: the land is as a garment; the fruit thereof shall not rot.',
@@ -57,40 +17,24 @@ inference.inference("Look")# split and non-split format both are supported.
 # 'Look, I speak unto you as a man that have sinned: but if ye forgive not your enemies their trespasses which they commit against them.']
 ```
 
-<!--
+-------------------
+
+## training model 
 ```python
-!rm -r *
-!git clone https://github.com/leehosu01/BibleLM.git
-#!curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-#!sudo apt-get install git-lfs
-#!cd BibleLM && git lfs pull
-!mv BibleLM/* ./
 
+from BibleLM.config import *
+!git clone https://github.com/huggingface/transformers
+!cd transformers && git checkout tags/v4.9.1
+!pip3 install -r transformers/examples/pytorch/_tests_requirements.txt
+from BibleLM import training
 
-import setup
-import training
-training.training(clear_other_models = True, split_model = True, delete_model_if_split = True)
-
-
-import inference
-print(inference.inference("Look"))
-
-!rm -r BibleLM
-!git clone https://github.com/leehosu01/BibleLM.git
-!cp training.py BibleLM/
-!cp config.py BibleLM/
-!cp inference.py BibleLM/
-
-!git config --global user.email "leehosu01@naver.com"
-!git config --global user.name "leehosu01"
-
-!curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-!sudo apt-get install git-lfs
-!cd BibleLM/ && git lfs untrack "*.bin"
-!cd BibleLM && git add . && git commit -m "add model split after training option"
-!cd BibleLM && cp -r ../models_ckpts ./
-!cd BibleLM && git add . && git commit -m "split 된 모델추가, BS = 1, epochs = 2"
-#!rm BibleLM/.gitattributes
-!cd BibleLM && git add . && git commit -m "lfs 안쓰기 때문에 attr 제거"
+!mkdir trained_model
+training.training(clear_other_models = True, split_model = True, delete_model_if_split = True, model_path = 'trained_model')
+inference.inference('Look', model_path = 'trained_model')
+#['Look at my mouth; it is as the voice of a dove.',
+# 'Looketh upon all his way to seek after the LORD, and will not turn aside from following him.',
+# 'Look, I will write for thee these words, which thou shalt speak: The LORD hath given it to thy servants and thine own handmaid; ye shall not be ashamed of it.',
+# 'Look for a good land to dwell in; and let my people dwell therein:',
+# 'Look to the end, and there is not life.']
 ```
--->
+
