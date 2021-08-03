@@ -22,6 +22,7 @@ inference.inference("Look")# model file split and non-split format both are supp
 ## training model 
 ```python
 
+!pip install git+https://github.com/leehosu01/BibleLM.git
 !git clone https://github.com/huggingface/transformers
 !cd transformers && git checkout tags/v4.9.1
 !pip3 install -r transformers/examples/pytorch/_tests_requirements.txt
