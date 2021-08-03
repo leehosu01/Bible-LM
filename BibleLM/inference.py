@@ -8,15 +8,15 @@ Created on Fri Jul 30 10:18:30 2021
 """
 from BibleLM.config import *
 
-def inference(sentence, return_case = 5):
+def inference(sentence, return_case = 5, model_path = models_path):
     import transformers
 
-    try: model = transformers.TFGPT2LMHeadModel.from_pretrained(models_path, from_pt=True)
+    try: model = transformers.TFGPT2LMHeadModel.from_pretrained(model_path, from_pt=True)
     except:
         try:
-            simple_cmd_command(f"cat {models_path}/pytorch_model.bin.split_* > {models_path}/pytorch_model.bin")
-            model = transformers.TFGPT2LMHeadModel.from_pretrained(models_path, from_pt=True)
-        except: raise RuntimeError(f'Fail to open model. Check {models_path}/ is correctly exist.')
+            simple_cmd_command(f"cat {model_path}/pytorch_model.bin.split_* > {model_path}/pytorch_model.bin")
+            model = transformers.TFGPT2LMHeadModel.from_pretrained(model_path, from_pt=True)
+        except: raise RuntimeError(f'Fail to open model. Check {model_path}/ is correctly exist.')
     tokenizer = transformers.GPT2Tokenizer.from_pretrained("gpt2")
 
     input_ids = tokenizer.encode(sentence, return_tensors='tf')

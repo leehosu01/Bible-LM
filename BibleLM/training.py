@@ -9,9 +9,9 @@ Created on Fri Jul 30 10:18:30 2021
 from BibleLM.config import *
 import subprocess
 
-def training(clear_other_models = False, split_model = False, delete_model_if_split = True):
+def training(clear_other_models = False, split_model = False, delete_model_if_split = True, model_path = models_path):
     if clear_other_models:
-        simple_cmd_command(f"rm -r {models_path}/*") 
+        simple_cmd_command(f"rm -r {model_path}/*") 
     import glob, re, os
 
     RANDOM_SEED = 42
@@ -63,11 +63,11 @@ def training(clear_other_models = False, split_model = False, delete_model_if_sp
         --save_steps -1 \
         --num_train_epochs {epochs} \
         --fp16 \
-        --output_dir={models_path} \
+        --output_dir={model_path} \
         --overwrite_output_dir
         """)
     if split_model:
-        simple_cmd_command(f"split -b {file_split_size} {models_path}/pytorch_model.bin {models_path}/pytorch_model.bin.split_")
+        simple_cmd_command(f"split -b {file_split_size} {model_path}/pytorch_model.bin {model_path}/pytorch_model.bin.split_")
         if delete_model_if_split:
-            simple_cmd_command(f"rm -f {models_path}/pytorch_model.bin")
+            simple_cmd_command(f"rm -f {model_path}/pytorch_model.bin")
 #training()
