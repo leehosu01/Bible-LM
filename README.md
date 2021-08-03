@@ -26,7 +26,7 @@ from BibleLM.config import *
 !git clone https://github.com/huggingface/transformers
 !cd transformers && git checkout tags/v4.9.1
 !pip3 install -r transformers/examples/pytorch/_tests_requirements.txt
-from BibleLM import training
+from BibleLM import training, inference
 
 !mkdir trained_model
 training.training(clear_other_models = True, split_model = True, delete_model_if_split = True, model_path = 'trained_model')
