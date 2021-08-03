@@ -39,5 +39,6 @@ setuptools.setup(
     ],
     python_requires='>=3.7',
     install_requires=requirements,
-    data_files = datafiles
+    data_files = datafiles,
+    include_package_data=True
 )

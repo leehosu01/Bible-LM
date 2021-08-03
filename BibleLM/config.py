@@ -11,6 +11,7 @@ train_file = 'train.txt'
 test_file = 'test.txt'
 models_dirname = 'Bible_model_ckpts'
 
+import os
 _ROOT = os.path.abspath(os.path.dirname(__file__))
 def get_data(path): return os.path.join(_ROOT, models_dirname)
 models_path = os.path.join(_ROOT, models_dirname)
