@@ -6,7 +6,7 @@ Created on Fri Jul 30 10:18:30 2021
 
 @author: map
 """
-from config import *
+from BibleLM.config import *
 import subprocess
 
 def training(clear_other_models = False, split_model = False, delete_model_if_split = True):

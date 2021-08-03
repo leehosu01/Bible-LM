@@ -6,7 +6,7 @@ Created on Fri Jul 30 10:18:30 2021
 
 @author: map
 """
-from config import *
+from BibleLM.config import *
 
 def inference(sentence, return_case = 5):
     import transformers
