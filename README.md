@@ -9,7 +9,7 @@
 !pip install git+https://github.com/leehosu01/BibleLM.git
 from BibleLM import inference
 
-inference.inference("Look")# split and non-split format both are supported. 
+inference.inference("Look")# model file split and non-split format both are supported. 
 #['Look the earth, and see: the land is as a garment; the fruit thereof shall not rot.',
 # 'Look out, and see what they shall do unto us; for if there be a time of temptation, I pray you come ye to the plain.',
 # 'Look out, thou king of Israel: for I am against thee, saith the LORD.',
