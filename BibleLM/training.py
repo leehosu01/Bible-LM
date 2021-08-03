@@ -36,7 +36,7 @@ def training(clear_other_models = False, split_model = False, delete_model_if_sp
     def as_txt(data, fname):
         with open(fname, 'w+') as fp:
             fp.write('<|endoftext|>'.join(data))
-    for I in glob.glob("input_files/*.txt"):
+    for I in glob.glob(f"{inputs_path}/*.txt"):
         with open(I) as f:
             txt_processing(f.read())
 
