@@ -8,11 +8,12 @@ Created on Fri Jul 30 10:18:30 2021
 """
 from BibleLM.config import *
 import subprocess
+import glob, re, os
+from sklearn.model_selection import train_test_split
 
 def training(clear_other_models = False, split_model = False, delete_model_if_split = True, model_path = models_path):
     if clear_other_models:
         simple_cmd_command(f"rm -r {model_path}/*") 
-    import glob, re, os
 
     RANDOM_SEED = 42
     def seed_everything(seed=RANDOM_SEED):
@@ -41,10 +42,8 @@ def training(clear_other_models = False, split_model = False, delete_model_if_sp
             txt_processing(f.read())
 
     #print(processed_strs[-10:])
+    
 
-
-
-    from sklearn.model_selection import train_test_split
     train, test = train_test_split(processed_strs, test_size=0.2)
 
     as_txt(train, train_file)

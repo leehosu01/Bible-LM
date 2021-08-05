@@ -7,9 +7,9 @@ Created on Fri Jul 30 10:18:30 2021
 @author: map
 """
 from BibleLM.config import *
+import transformers
 
 def inference(sentence, return_case = 5, model_path = models_path):
-    import transformers
 
     try: model = transformers.TFGPT2LMHeadModel.from_pretrained(model_path, from_pt=True)
     except:
