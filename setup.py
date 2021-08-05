@@ -20,7 +20,7 @@ def recursive_dir_walker(dir):
     if len(files) == 0: files = [[dir]]
     return sum(files, [])
 
-datafiles = recursive_dir_walker('BibleLM/*')
+#datafiles = recursive_dir_walker('BibleLM/*')
 
 setuptools.setup(
     name="Bible language model", # 이 패키지를 설치/삭제할 때 사용할 이름을 의미한다. 이 이름과 import할 때 쓰이는 이름은 다르다.
@@ -39,6 +39,6 @@ setuptools.setup(
     ],
     python_requires='>=3.7',
     install_requires=requirements,
-    data_files = datafiles,
+    #data_files = datafiles,
     include_package_data=True
 )
