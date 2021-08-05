@@ -9,6 +9,7 @@ Created on Fri Jul 30 10:18:30 2021
 from BibleLM.config import *
 import transformers
 
+tokenizer = transformers.GPT2Tokenizer.from_pretrained("gpt2")
 def inference(sentence, return_case = 5, model_path = models_path):
 
     try: model = transformers.TFGPT2LMHeadModel.from_pretrained(model_path, from_pt=True)
@@ -17,7 +18,6 @@ def inference(sentence, return_case = 5, model_path = models_path):
             simple_cmd_command(f"cat {model_path}/pytorch_model.bin.split_* > {model_path}/pytorch_model.bin")
             model = transformers.TFGPT2LMHeadModel.from_pretrained(model_path, from_pt=True)
         except: raise RuntimeError(f'Fail to open model. Check {model_path}/ is correctly exist.')
-    tokenizer = transformers.GPT2Tokenizer.from_pretrained("gpt2")
 
     input_ids = tokenizer.encode(sentence, return_tensors='tf')
 
