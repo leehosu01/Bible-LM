@@ -19,7 +19,7 @@ def inference(sentence, return_case = 5, model_path = models_path):
             model = transformers.TFGPT2LMHeadModel.from_pretrained(model_path, from_pt=True)
         except: raise RuntimeError(f'Fail to open model. Check {model_path}/ is correctly exist.')
 
-    input_ids = tokenizer.encode(sentence, return_tensors='tf')
+    input_ids = tokenizer.encode('<|endoftext|>' + sentence, return_tensors='tf')
 
     generated_text_samples = model.generate(
         input_ids, 
