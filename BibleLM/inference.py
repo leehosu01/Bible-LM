@@ -12,14 +12,16 @@ import transformers
 tokenizer = transformers.GPT2Tokenizer.from_pretrained("gpt2")
 def inference(sentence, return_case = 5, model_path = models_path):
 
-    try: model = transformers.TFGPT2LMHeadModel.from_pretrained(model_path, from_pt=True)
+    try: model = transformers.GPT2LMHeadModel.from_pretrained(model_path)
     except:
         try:
             simple_cmd_command(f"cat {model_path}/pytorch_model.bin.split_* > {model_path}/pytorch_model.bin")
-            model = transformers.TFGPT2LMHeadModel.from_pretrained(model_path, from_pt=True)
-        except: raise RuntimeError(f'Fail to open model. Check {model_path}/ is correctly exist.')
+            model = transformers.GPT2LMHeadModel.from_pretrained(model_path)
+        except Exception as e:
+            raise RuntimeError(str(e))
+            #raise RuntimeError(f'Fail to open model. Check {model_path}/ is correctly exist.')
 
-    input_ids = tokenizer.encode('<|endoftext|>' + sentence, return_tensors='tf')
+    input_ids = tokenizer.encode('<|endoftext|>' + sentence, return_tensors='pt')
 
     generated_text_samples = model.generate(
         input_ids, 
