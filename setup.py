@@ -6,7 +6,7 @@ Created on Fri Jul 30 19:08:30 2021
 
 @author: map
 """
-from setuptools import setup, find_packages
+import setuptools
 
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
